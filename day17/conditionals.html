@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals</title>
+</head>
+<body>
+    <h1>CONDITIONALS</h1>
+    Click the button to call the greeting function <br>
+    <button onclick="greeting('Ron')">Click</button> <br>
+
+<script>
+    //conditionals using if else
+    let message; //no set value
+    let amount = 500;
+    if (amount > 1000) {
+        message = "NO PAYOUT POSSIBLE";
+    }
+    else {
+        message = "The amount will be paid out";
+    }
+    document.write (message +"<br>");
+    
+    //another if else if else
+    var hourofday = 11; //javascript has built in functiion for tiime
+    var grettings;
+    if (hourofday > 4 && hourofday <12) {
+        grettings = "Good Morning!"
+    }
+    else if (hourofday >= 12 && hourofday <20) {
+        grettings = "Good Afternoon!"
+    }
+    else {
+        grettings = "Good Evening!"
+    }
+    document.write(grettings);
+
+    /*//to get the exact greetings at time
+    var current =getHours(); //javascript has built in functiion for tiime
+    var grettings;
+    if (hourofday > 4 && hourofday <12) {
+        grettings = "Good Morning!"
+    }
+    else if (hourofday >= 12 && hourofday <20) {
+        grettings = "Good Afternoon!"
+    }
+    else {
+        grettings = "Good Evening!"
+    }
+    document.write(grettings); */
+
+    //sample switch
+    var animals = "Dog";
+    switch (animals) {
+        case "Cow":
+        case "Giraffe":
+        case "Dog": 
+        case "Pig":
+            document.write (`<br> This animal is not extinct`)
+            break;
+        case "Dinosaur":
+        default:
+            document.write(`<br> This animal is exttinct`)
+            break;
+    }
+
+    //another switch sample
+    var grade = "B";
+    switch (grade) {
+        case "A":
+            document.write (`<br> Good job!`);
+            break;
+        case "B":
+            document.write (`<br> Pretty good!`);
+            break;
+        case "C":
+            document.write (`<br> Passed!`);
+            break;
+        case "D":
+            document.write (`<br> Not so good`);
+            break;
+        case "F":
+            document.write (`<br> Failed`);
+            break;
+        default:
+            document.write (`<br> Unknown grade`);
+            break;
+    }
+
+//while loop sample
+document.write (`<br><h1>While  Sample</h1><br>`);
+var count = 0;
+while (count<10) {
+    document.write (`<br>current count: ${count} <br>`);
+    count++
+}
+//do while looop
+
+document.write (`<br><h1>Do While  Sample</h1><br>`);
+count = 0;
+do {
+    document.write (`Current count: ${count} <br>`)
+    count++
+} while (count < 5);
+    document.write (`Loop Stopped`)
+
+// for
+document.write (`<br><h1>For  Sample</h1><br>`);
+for (count = 0; count < 5; count++) {
+    document.write (`Current count: ${count} <br>`)
+}
+
+//for in
+document.write (`<br><h1>For In  Sample</h1><br>`);
+
+const object = {a:1, b:2, c:3}
+for(const property in object) {
+    document.write (`${property} : ${object[property]} <br>`)
+}
+//another for in sample 
+document.write (`<br><h1>Browser Navigation Properties</h1><br>`);
+var bproperty;
+for(bproperty in navigator) { //navigator is reserved word which it searchin computer
+    document.write (bproperty +"<br>");
+}
+//sample of function
+document.write (`<br><h1>function</h1><br>`);
+function product (num1, num2) {
+    return num1*num2
+}
+let mNum = product(2,5); //has default value
+alert (mNum);
+
+//sample of nested function
+function getScore () {
+    let num1 = 2;
+    let num2 = 3;
+    let fName ="Ron";
+
+    function add () {
+        return fName + " scored: " +(num1 + num2)
+    }
+    return add ()
+}
+console.log(getScore());
+
+function greeting(fName) { //greetings is the function name
+    alert("Hello there " +fName);
+}
+</script>
+</body>
+</html>

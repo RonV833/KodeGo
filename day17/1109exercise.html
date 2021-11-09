@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="calc">
+        <h1>Simple Calculator</h1>
+        <h2>Click the button to start Calculator</h2>
+        <button onclick="calculator()">Start</button>
+    </div>
+
+    <script>
+       /*var x = prompt("Input Number 1"); //first try
+       var y = prompt("Input Number 2");
+       var operator = prompt ("Type Operator +, *, -, /");
+        var result;
+
+       if (operator=="+") {
+           result = Number(x) + Number (y);
+           alert (result)
+       }
+       else if (operator=="*") {
+           result = Number(x) * Number (y);
+           alert (result)
+       }
+       else if (operator=="-") {
+           result = Number(x) - Number (y);
+           alert (result)
+       }
+       else if (operator=="/") {
+           result = Number(x) / Number (y);
+           alert (result)
+       }*/
+       /* //second try
+       function calculator() {
+            var x = prompt("Input Number 1");
+            var y = prompt("Input Number 2");
+            var operator = prompt ("Type Operator +, *, -, /");
+            var result;
+  
+        if (operator=="+") {
+           result = Number(x) + Number (y);
+           alert (result)
+       }
+       else if (operator=="*") {
+           result = Number(x) * Number (y);
+           alert (result)
+       }
+       else if (operator=="-") {
+           result = Number(x) - Number (y);
+           alert (result)
+       }
+       else if (operator=="/") {
+           result = Number(x) / Number (y);
+           alert (result)
+       }
+        return result;
+    }
+    */
+   /*Third try*/
+   function calculator() {
+            var x = Number(prompt("Input Number 1"));
+            var y = Number(prompt("Input Number 2"));
+            var operator = prompt ("Type Operator +, *, -, /");
+            var result;
+        
+        if (operator=="+") {
+           result = x + y;
+           alert (result)
+       }
+      /* else if (x==null) {
+           result = "No Input in Number 1"
+           document.write (`${result}`)
+       }
+       else if (y==null) {
+           result = "No Input in Number 1"
+           document.write (`${result}`)
+       }
+       else if (operator==null) {
+           result = "No Input Operator"
+           document.write (`${result}`)
+       }*/
+       else if (operator=="*") {
+           result = x * y;
+           alert (result)
+       }
+       else if (operator=="-") {
+           result = x - y;
+           alert (result)
+       }
+       else if (operator=="/") {
+           result = x / y;
+           alert (result)
+       }
+     
+        return result;
+    }
+
+
+
+    </script>
+</body>
+</html>

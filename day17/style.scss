@@ -1,0 +1,13 @@
+$bgcolor: rgb(172, 172, 168);
+$color: white;
+$padding: 24px;
+$text: 15px;
+$width: 200px;
+#calc {
+    background-color: $bgcolor;
+    color: $color;
+    padding: $padding;
+    box-align: center;
+    width: $width;
+    margin: auto;
+}

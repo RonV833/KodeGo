@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic</title>
+</head>
+<body>
+    <h1>Arithmetic Operations</h1>
+
+
+<!--This is a sample of embedded javascript-->
+<script >
+    var a = 33; 
+    var b = 10;
+    var c = "Test";
+    var result;  //var declaration allow you to reuse the variables
+    var linebreak = "<br>";
+
+result = a + b;
+document.write (`a + b = ${result} ${linebreak}`);
+
+result = a - b;
+document.write (`a - b = ${result} ${linebreak}`);
+
+result = a / b;
+document.write (`a / b = ${result} ${linebreak}`);
+
+result = a % b;
+document.write (`a % b = ${result} ${linebreak}`);
+
+result = a + b + c;
+document.write (`a + b + c = ${result} ${linebreak}`);
+
+result = ++a+1;
+document.write (`++a = ${result} ${linebreak}`);
+
+result = --b-1;
+document.write (`--b = ${result} ${linebreak}`);
+
+document.write ("COMPARISON OPERATORS" +linebreak);
+document.write ("a==b ", a==b); //"a==b" is a string, a==b is false since a number is comapred to b number
+document.write (linebreak);
+result = a < b;
+document.write (`a < b ${result} ${linebreak}`);
+result = a > b;
+document.write (`a > b ${result} ${linebreak}`);
+result = a >= b;
+document.write (`a >= b ${result} ${linebreak}`);
+result = a <= b;
+document.write (`a <= b ${result} ${linebreak}`);
+result = a === b;
+document.write (`a === b ${result} ${linebreak}`);
+result = a !== b;
+document.write (`a !== b ${result} ${linebreak}`);
+
+</script> 
+<h1>LOGICAL OPERATORS</h1>
+<script>
+
+    var a = true;
+    var b = false;
+    var result;
+    var linebreak = "<br>";
+   result = a && b; //the and operator
+   document.write (`a&&b ${result} ${linebreak}`);
+   result = a || b; //the or operator
+   document.write (`a||b ${result} ${linebreak}`);
+   result = !(a && b);
+   document.write (`!(a && b) ${result} ${linebreak}`); //!(a && b) will reverse the statement, the not operator
+//ternary operator takes 3 operands
+    document.write (`TERNARY OPERATOR <br>`)
+   var age = 20;
+   var beverage =(age>=21) ? "BEER": "JUICE" //TERNARY OPERATOR
+   document.write (beverage);
+
+</script>
+
+
+
+   
+
+</body>
+</html>

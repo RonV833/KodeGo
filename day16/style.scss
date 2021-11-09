@@ -1,0 +1,142 @@
+$ronFont: helvetica;
+$ronFontSize: 20px;
+$ronColor:orange;
+$ronBgColor: rgba(3, 136, 3, 0.719);
+$ronWidth: 650px;
+
+body {
+    background-color: $ronBgColor;
+    font-family: $ronFont ;
+    font-size: $ronFontSize;
+    color: $ronColor;
+}
+.container {
+    width: $ronWidth;
+}
+h1 {
+    $ronColor: beige; /*!global will apply style to next*/ /*remove !global will follow the color set again*/
+    color: $ronColor;
+}
+/*using mixin*/
+@mixin warningMessage {
+    color: $ronColor;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+    margin-bottom: 10px
+}
+.warning {
+    @include warningMessage(); /*@include <name> is used to call out the mixin*/
+    background-color: $ronBgColor;
+}
+/*mixin with arguments*/
+@mixin box ($width, $color, $boxwidth) /*you will pass values to this 3 variables*/ 
+{
+    border: $width solid $color;
+    width: $boxwidth;
+}
+article {
+    @include box(1px, red, 300px)
+}
+.note {
+    @include box(3px, purple, 400px)
+}
+/*mixin with spread argument*/
+$style1: 100%, 70px, lightblue;
+$style2: (background: lightgreen, width: 100%, height: 100px); /*key value pair, property and value pair*/
+@mixin box2 ($width, $height, $background) { /*this is the argument ($width, $height, $background)*/
+    width: $width;
+    height: $height;
+    background-color: $background;
+}
+.boxstyle1 {
+    @include box2($style1...) /*a sample of spread argument ($style1...)*/
+}
+.boxstyle2 {
+    @include box2($style2...) /*another sample of spread argument ($style2...)*/
+}
+/*extend directive*/
+.btn-a {
+    background: $ronBgColor;
+    border: 1px solid tomato;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+.btn-b {
+    @extend .btn-a; /*@extend will transfer the property of btn-a*/
+    background-color: yellow;
+}
+/*flow control in @if else*/
+$light-background: lightpink;
+$light-text: black;
+$dark-background: black;
+$dark-text: white;
+@mixin theme-colors ($light-theme: true) { /*pass parameter, inbetween parenthesis, like function*/
+    @if $light-theme { /*if the statement is true do this*/
+        background-color: $light-background;
+        color: $light-text;
+    }
+    @else {
+        background-color: $dark-background;
+        color: $dark-text;
+    }
+}
+.bannerlight {
+    @include theme-colors($light-theme: true)
+}
+.bannerdark {
+    @include theme-colors($light-theme: false)
+}
+/*flow control @for loop*/
+$fontsize: 24px, 22px, 20px, 18px;
+$fontcolor: red, orange, green, blue;
+
+@for $var from 1 to 4  /*sample of from to loop*/
+{ 
+    h#{$var} {
+    font-size: nth($fontsize, $var);
+    }
+}
+@for $var from 1 through 4  /*sample of from through loop*/
+{ 
+    h#{$var} {
+    color: nth($fontcolor, $var);
+    }
+}
+
+/*While loop*/
+$font-size: 16;
+@while $font-size <=24 {
+    .font-size-#{$font-size} {
+        font-size: #{$font-size}px;
+        line-height: #{$font-size +2}px;
+    }
+    $font-size: $font-size + 2;
+}  
+/*Sample of @each loop*/
+@each $color in blue, black, yellow {
+    .color-#{$color} {
+        background-color: $color;
+    }
+}
+
+/*Sample for Function Directive*/
+@function sum ($numbers...) {
+    $total: 0;
+    @each $var in $numbers {
+        $total: $total + $var;
+    }
+    @return $total; /*@return directive to return value, in different language it return a value too in function*/
+}
+.smallbox {
+    width: sum(100px, 100px, 150px);
+    @include theme-colors($light-theme: true)
+}
+.medbox {
+    width: sum(100px, 100px, 200px);
+    @include theme-colors($light-theme: false)
+}
+.bigbox {
+    width: sum(250px, 30px, 200px);
+    @include theme-colors($light-theme: true)
+}

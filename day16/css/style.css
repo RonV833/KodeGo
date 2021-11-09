@@ -1,0 +1,175 @@
+body {
+  background-color: rgba(3, 136, 3, 0.719);
+  font-family: helvetica;
+  font-size: 20px;
+  color: orange;
+}
+
+.container {
+  width: 650px;
+}
+
+h1 {
+  /*!global will apply style to next*/
+  /*remove !global will follow the color set again*/
+  color: beige;
+}
+
+/*using mixin*/
+.warning {
+  color: orange;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+  margin-bottom: 10px;
+  /*@include <name> is used to call out the mixin*/
+  background-color: rgba(3, 136, 3, 0.719);
+}
+
+/*mixin with arguments*/
+article {
+  border: 1px solid red;
+  width: 300px;
+}
+
+.note {
+  border: 3px solid purple;
+  width: 400px;
+}
+
+/*mixin with spread argument*/
+/*key value pair, property and value pair*/
+.boxstyle1 {
+  /*this is the argument ($width, $height, $background)*/
+  width: 100%;
+  height: 70px;
+  background-color: lightblue;
+  /*a sample of spread argument ($style1...)*/
+}
+
+.boxstyle2 {
+  /*this is the argument ($width, $height, $background)*/
+  width: 100%;
+  height: 100px;
+  background-color: lightgreen;
+  /*another sample of spread argument ($style2...)*/
+}
+
+/*extend directive*/
+.btn-a, .btn-b {
+  background: rgba(3, 136, 3, 0.719);
+  border: 1px solid tomato;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.btn-b {
+  /*@extend will transfer the property of btn-a*/
+  background-color: yellow;
+}
+
+/*flow control in @if else*/
+.bannerlight {
+  /*pass parameter, inbetween parenthesis, like function*/
+  /*if the statement is true do this*/
+  background-color: lightpink;
+  color: black;
+}
+
+.bannerdark {
+  /*pass parameter, inbetween parenthesis, like function*/
+  background-color: black;
+  color: white;
+}
+
+/*flow control @for loop*/
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: orange;
+}
+
+h3 {
+  color: green;
+}
+
+h4 {
+  color: blue;
+}
+
+/*While loop*/
+.font-size-16 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.font-size-18 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.font-size-22 {
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.font-size-24 {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+/*Sample of @each loop*/
+.color-blue {
+  background-color: blue;
+}
+
+.color-black {
+  background-color: black;
+}
+
+.color-yellow {
+  background-color: yellow;
+}
+
+/*Sample for Function Directive*/
+.smallbox {
+  width: 350px;
+  /*pass parameter, inbetween parenthesis, like function*/
+  /*if the statement is true do this*/
+  background-color: lightpink;
+  color: black;
+}
+
+.medbox {
+  width: 400px;
+  /*pass parameter, inbetween parenthesis, like function*/
+  background-color: black;
+  color: white;
+}
+
+.bigbox {
+  width: 480px;
+  /*pass parameter, inbetween parenthesis, like function*/
+  /*if the statement is true do this*/
+  background-color: lightpink;
+  color: black;
+}

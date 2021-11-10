@@ -63,7 +63,7 @@
     }
     */
    /*Third try*/
-   function calculator() {
+        function calculator() {
             var x = Number(prompt("Input Number 1"));
             var y = Number(prompt("Input Number 2"));
             var operator = prompt ("Type Operator +, *, -, /");
@@ -71,34 +71,25 @@
         
         if (operator=="+") {
            result = x + y;
-           alert (result)
-       }
-      /* else if (x==null) {
-           result = "No Input in Number 1"
-           document.write (`${result}`)
-       }
-       else if (y==null) {
-           result = "No Input in Number 1"
-           document.write (`${result}`)
-       }
-       else if (operator==null) {
-           result = "No Input Operator"
-           document.write (`${result}`)
-       }*/
-       else if (operator=="*") {
+           alert ("Answer is " +result)
+        }
+        else if (operator=="*") {
            result = x * y;
-           alert (result)
-       }
-       else if (operator=="-") {
+           alert ("Answer is " +result)
+        }
+        else if (operator=="-") {
            result = x - y;
-           alert (result)
-       }
-       else if (operator=="/") {
+           alert ("Answer is " +result)
+        }
+        else if (operator=="/") {
            result = x / y;
-           alert (result)
-       }
-     
+           alert ("Answer is " +result)
+        }
+        else if (operator!= "+, -, *, /") {
+           alert ("Wrong input operation")
+        }
         return result;
+        
     }
 
 

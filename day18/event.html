@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Event Handlers</title>
+    <style>
+        #bg {
+            width: 200px;
+            height: 200px;
+            border: 4px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Javascript Event Handlers</h1>
+
+    <form>
+        <input type="button" onclick="alert('Wake Up!')" value="click to wake up">
+        <input type="button" onclick="clickevent()" value="Surprise">
+    </form>
+    <p>CLICK THE BUTTON TO DISPLAY THE DATE</p>
+    <button onclick="document.getElementById('dateDisplay').innerHTML=Date()">The time is</button> <!--date display-->
+    <p id="dateDisplay"></p>
+
+    <input type="text" id="inputOne" onfocus="focusEvent()"><br><br>
+
+    <div style="background-color: rgb(250, 250, 21); width: 100px; height: 50px; padding: 40px; margin: auto;" onmouseover="mouseover(this)" onmouseout="mouseout(this)">Mouse over Me</div> <br><br><!--"this"-refers to owner of object is a javascript keyword that can be used, in event to pass an object-->
+    
+    <div id="bg">Example of onload</div>
+    <script>
+        clickevent=()=>{
+            alert("HELLO UNIVERSE")      
+        }
+        //sample of onfocus event, used in mandatory field
+        focusEvent = () => {
+            document.getElementById("inputOne").style.background = "aqua"
+        }
+        window.onload = function () {
+            document.getElementById("bg").style.background="red";
+            document.getElementById ("bg").style.width ="500px";
+            document.getElementById ("bg").style.height ="500px";
+        }
+        mouseover = (object1) => {
+            object1.innerHTML='Thank You for Touching this box';
+        }
+        mouseout = function (object1) {
+            object1.innerHTML='Mouse Over me';
+        }
+    </script>
+</body>
+</html>

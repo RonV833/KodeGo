@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <form>
+        <label for="firstnumber">Input First Number</label>
+        <input type="text" name="firstnumber" id="firstnumber"> <br>
+        <label for="secondnumber">Input Second Number</label>
+        <input type="text" name="secondnumber" id="secondnumber"> <br>
+        <input type="button" onclick="product()" value="Multiply"> <br><br> <!--function declaration-->
+        <input type="button" onclick="prod()" value="Arrow Multiply"> <br><br> <!--arrow function-->
+        <input type="button" onclick="quotient()" value="Divide"> <!--function expression-->
+        
+
+    </form>
+    <p>The Result is: <span id="result"></span></p>
+<script>
+    //Function Declaration
+    
+    function product () {
+        num1 = document.getElementById("firstnumber").value; //getElementById returns the elemnt id, .value-to get value of first number
+        num2 = document.getElementById("secondnumber").value;
+        document.getElementById("result").innerHTML = num1 * num2; //.innerHTML - another way to display
+    }
+
+    //arrow function
+    
+    let prod = (num1 = document.getElementById("firstnumber").value, num2 = document.getElementById("secondnumber").value) => document.getElementById("result").innerHTML = num1 * num2;
+    
+
+    //another way to arrow function
+    /*
+    let prod = () => {
+        num1 = document.getElementById("firstnumber").value; 
+        num2 = document.getElementById("secondnumber").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+    }*/
+    //function expression
+
+    let quotient =function(){
+        num1 = document.getElementById("firstnumber").value; 
+        num2 = document.getElementById("secondnumber").value;
+        document.getElementById("result").innerHTML = num1 / num2;
+    }; 
+</script>
+</body>
+</html>

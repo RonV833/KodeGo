@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+</head>
+<body style="text-align: center;">
+        <h3>User Input Table</h3>
+        <button id="btn">Create Table</button>
+        <table id="cTable" >
+            
+  
+        </table>
+
+    <script>
+        
+        //insert row method
+        //insert cell method
+        //insertRow and insertCell method
+        //assign id for for the table
+        //tr and td must be from users
+        //Write a JavaScript function that creates a table, accepting rows and columns from the user. Instead of using  onclick in creating table,  use addEvenlistener
+        //addevent listener will call button, event click then function
+        document.getElementById("btn").addEventListener("click", ()=> {
+
+
+            var custRow = Number(window.prompt("Input the Row Number ",1));
+            var custCol = Number(window.prompt("Input the Column Number",1));
+            var userTable = document.getElementById("cTable");
+
+            for (let cRow=0; cRow < custRow; cRow++) {
+                let newRow = userTable.insertRow(cRow);
+                for (let cCol =0; cCol <custCol; cCol++); {
+                    let newCol = newRow.insertCell(cCol);
+                    newCol.innerText = `Row-${cRow+1} Column-${cRow+1}`
+                }
+            
+            }
+        
+        });
+    </script>
+</body>
+</html>

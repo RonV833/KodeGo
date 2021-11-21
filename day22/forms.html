@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in Javascript</title>
+</head>
+<body>
+    <h1>Forms in javascript</h1>
+    <label for="framework">Select a Framework</label><br>
+    <select name="framework" id="fwselect">
+        <option value="1">Angular</option>
+        <option value="2">React Js</option>
+        <option value="3">Vue Js</option>
+        <option value="4">Ember Js</option>
+    </select>
+    <button id="btn" name="select">Get the Selected Index</button>
+    <button type="button"  onclick="selectFrameVal()">Display Index Value</button>
+    <br><br>
+    <label for="proglang">Select Programming Languages</label><br>
+    <select name="proglang" id="spselect" multiple><!--multiple attribute-->
+        <option value="Java">Java</option>
+        <option value="PHP">PHP</option>
+        <option value="Phyton">Phyton</option>
+        <option value="C">C</option>
+        <option value="Rubyonrails">Ruby On Rails</option>
+    </select><br><br>
+   
+    <button id="btn2">SELECT USING MAP METHOD</button>
+
+    <button id="btn3">SElect Using For...Of Loop</button>
+
+    <button id="btn4">Select using Query Select</button>
+<br><br>
+    <label for="question">Are you Okay</label><br>
+    <input type="radio" name="question" value="Yes">Yes</input><br>
+    <input type="radio" name="question" value="No">No</input><br>
+    <button id="btn5">Check the Button</button>
+<br><br>
+    <label for="proglang">Select Programming Language</label><br>
+    
+        <input type="checkbox" onclick="toggle(this)">Select All
+    <div id="checkboxvalue">
+        <input type="checkbox" name="proglang2" value="Java">Java
+        <input type="checkbox" name="proglang2" value="PHP">PHP
+        <input type="checkbox" name="proglang2" value="Phyton">Phyton
+        <input type="checkbox" name="proglang2" value="C">C
+        <input type="checkbox" name="proglang2" value="Ruby on Rails">Ruby on Rails
+    </div>
+    <br>
+    <button id="btn6" onclick="getValue()">Get The Values</button>
+
+<script>
+    //functiion for checkbox
+    function toggle (source) {
+        let checkboxes = document.getElementsByName("proglang2"); //two conditon
+        for (var i=0, val = checkboxes.length; i<val;i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+    //function to get the values of checkbox
+    getValue = () => {
+        const checked = document.querySelectorAll("#checkboxvalue :checked");
+        const selected = [...checked].map(option => option.value);
+        alert (selected);
+    }
+    /*getValue = () => {
+        const progselect2 = document.getElementById("checkboxvalue");//option.selected is reserved words
+        //passing the value .map(option =>option.value)
+        const progselected2 = [...progselect.options].filter(option =>option.selected).map(option =>option.value); //.filter is a method //sample of array in spread [...]//progselected will get the multiple selected values
+        alert (progselected2);
+    }*/
+
+    //check if radio button is selected or not
+        const btn5 = document.querySelector("#btn5");
+        btn5.onclick = function () {
+            const rChoice = document.querySelectorAll("input[name='question']"); //getting radio
+            let selectedValue;
+            for (const r of rChoice) {
+                if (r.checked) {
+                    selectedValue = r.value;
+                    break; //no need to loop
+                }
+            }
+            alert(`Are you okay?  ${selectedValue}`);
+        }
+    //
+    const btn = document.querySelector("#btn"); //#btn id of button
+    const fwselect = document.querySelector("#fwselect"); //#fwselect id of the select
+
+    btn.onclick = (event) => { //event parameter
+        event.preventDefault(); //.preventDefault() method of event object, tells browser when submit form, to prevent user to use submit button repeatedtedly
+        alert (fwselect.selectedIndex); //show the selected index through alert
+    } 
+    //function to display the value oF options
+    selectFrameVal = () => {
+        let getSel = document.getElementById("fwselect").selectedIndex; //instead of .value use .selectedIndex since its a select
+        let getOption = document.getElementById("fwselect").options;
+        //alert (`Index: ${getOption[getSel].index} Is ${getOption[getSel].text}`)
+        alert ("Index: "+getOption[getSel].index +" Is "+getOption[getSel].text + " and value is " +getOption[getSel].value)
+    }
+    //filter and map method
+    //using function expression document.getElementById("btn2").onclick = function ()
+    document.getElementById("btn2").onclick = function () {
+        const progselect = document.getElementById ("spselect");//option.selected is reserved words
+        //passing the value .map(option =>option.value)
+        const progselected = [...progselect.options].filter(option =>option.selected).map(option =>option.value); //.filter is a method //sample of array in spread [...]//progselected will get the multiple selected values
+        alert (progselected);
+    }
+
+    //this is for ... of loop
+    document.getElementById("btn3").onclick = function() {
+        const selected = [];
+        for (const option of document.getElementById("spselect").options) {
+            if (option.selected) {
+                selected.push(option.value);
+            }
+        }
+        alert (selected);
+    }
+    //querry selector all
+    document.getElementById("btn4").onclick = function() {
+        const checked = document.querySelectorAll("#spselect :checked");
+        const selected = [...checked].map(option => option.value);
+        alert (selected);
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Creation</title>
+</head>
+<body>
+    <h2>Object Creation</h2>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+
+<script>
+    //object by literal sample
+    const person = {
+        firstName:'Juan',
+        lastName: 'Cruz',
+        age: 30,
+        gender: 'male'
+    }
+    //let x = document.getElementById("demo").innerHTML
+    //x = person.firstName;
+    console.log(person);
+    console.log(person.firstName);
+    document.getElementById("demo1").innerHTML = person.firstName +" " + person.lastName +" is " +person.age +" years old.";
+    //document.getElementById("demo").innerHTML = `${person.firstName} ${person.lastName} is ${person.age} years old`;
+
+    //another way to create or instantiating an object
+    //another declaration person2 = {} is declared as object
+    const person2 = {};
+    person2.firstName = "John";
+    person2.lastName = 'Lloyd';
+    person2.age = 20;
+    person2.gender ='male';
+    document.getElementById("demo2").innerHTML = `${person2.firstName} ${person2.lastName} is a ${person2.gender}`
+
+    //object instance
+    const person3 = new Object (); //new is keyword
+    person3.firstName = "Mark";
+    person3.lastName ='Zuckerberrg';
+    person3.age = 45;
+    person3.hobby ="skiing";
+    document.getElementById("demo3").innerHTML = `${person3.firstName}  ${person3.lastName} is ${person3.age} and love ${person3.hobby}`;
+//object constructor
+    //uses the variables
+    function person4 (firstName, lastName, age, gender, interest) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age =  age;
+        this.gender = gender;
+        this.interest = interest;
+        
+    }
+    //instantiating the object with the person4 as blueprint to instantiante object teacher1
+    let teacher1 = new person4 ('Josefa','Rizal',30,'female') //since person4 object has parameters, we can pass value directly
+    let teacher2 = new person4 ('Alexa', 'Josepheni', 30, 'female') //using the person blueprint, we can instantiate teacher2
+    document.getElementById("demo4").innerHTML = `Teacher ${teacher1.firstName} is ${teacher1.age} years old`;
+    //object constructor
+    //uses the variables
+    function person5 (firstName, lastName, age, gender, interest) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age =  age;
+        this.gender = gender;
+        this.interest = interest;
+        //sample method
+        this.bio = function () {
+            //alert(this.firstName);
+            alert (`My name is ${this.firstName} ${this.lastName} I am ${this.age} and my interest are ${this.interest[0]} and ${this.interest[1]}`)
+            
+        }
+    }
+    let stduent1 = new person5 ('Petra','Rizal',30,'female', ['dancing', 'music']) ;//since person4 object has parameters, we can pass value directly
+    stduent1.bio();
+    document.getElementById("demo5").innerHTML = `${stduent1.firstName} `;
+    let student2 = new person5 ('Alexa', 'Josepheni', 30, 'female' ['singing, rapping']); //using the person blueprint, we can instantiate teacher2
+    let student3 = new person5 ('Diane', 'Josepheni', 30, 'female' ['singing, rapping']);
+
+
+</script>
+</body>
+</html>

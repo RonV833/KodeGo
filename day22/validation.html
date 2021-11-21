@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Input Forms Validation</h1>
+    <div class="form1">
+<!--action is the url of the server-->
+<!--browser sent an http request to server then the server return response to browser, contain the requested content, and two methods is get (query string or value is embedded in url) and post(data request is stored in body, used when passed data from client to server)-->
+<!--onsubmit to call a fuction-->
+<!--method get will passed the information in urls, while post will go driect in -->
+        <form action="formprocress.html" name="logform" method="get" onsubmit="return validateForm()"> 
+            <fieldset style="width: fit-content;">
+                <legend>Log In</legend>
+                <label for="useraname">Username</label>
+                <input type="text" name="username" required><br><br>
+                <label for="email">Email</label>
+                <input type="text" name="email" required><br><br>
+<!--built in validataioon required-->
+                <label for="email">Email2</label>
+                <input type="email" required><br><br> <!--if you use type email and use the built in required validation it will gave out the validation-->
+                <label for="password">Password</label>
+                <input type="password" name="password" required><br><br>
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" name="confirmpassword" required><br><br>
+                <!--<input type="submit" value="Submit"><br><br>-->
+                <button type="submit" name="submit">Submit</button>
+                
+            </fieldset>
+        </form>
+
+    </div>
+
+<script>
+    //function for validation
+    validateForm =()=> {
+        //get form via form name
+        let logForm = document.forms["logform"]; //get the value in form, form is the parent
+        let userName = logForm["username"].value.trim(); //to get the value of children
+        let passWord = logForm["password"].value.trim(); //all name of input box inside the logForm[]
+        let confirmPassword = logForm ["confirmpassword"].value.trim();//.trim() function to remove the spaces
+        let eMail = logForm ["email"].value; //for validation regex or indexof or string manipulation
+        const emailPattern = /\S+@\S+\.\S+/
+
+        /*if (userName=="") { //"" means empty or blank
+            alert("Please Provide Username");
+            //username in infocus is the name of input type field
+            logForm['username'].focus(); //focus() will foucs the cursor in username text input field
+            return false; //false to go back to the starting point
+        }
+        if (passWord=="") {
+            alert("Please Provide Password")
+            logForm['password'].focus();
+            return false; //if false .focus() will focus on input boxes
+        }*/
+        //validations if all the inputs are not empty
+
+        if (userName=="" && passWord =="" && confirmPassword=="" && eMail=="") {
+            alert ("All Fields Required");
+            logForm['username'].focus();
+            return false;
+        }
+        else if (userName =="") {
+            alert("Please Provide Username");
+            logForm['username'].focus(); 
+            return false; 
+        }
+        else if (passWord=="") {
+            alert("Please Provide Password")
+            logForm['password'].focus();
+            return false;
+        }
+        else if (confirmPassword=="") {
+            alert("Please Confirm Password");
+            logForm['confirmpassword'].focus();
+            return false;
+        }
+        else if (!emailPattern.test(eMail)) {
+            alert ('Please Enter a valid Email');
+            logForm['email'].focus();
+            return false;
+        }
+        else if (eMail=="") {
+            alert("Please Provide Email");
+            logForm['email'].focus();
+            return false;
+        }
+        //validations for character length
+        if (passWord.length < 6) {
+            alert("Please Provide minimum Password of 6 character");
+            logForm["password"].focus();
+            return false;
+        }
+        if (userName.length < 6) {
+            alert("Please Provide minimum username of 6 character");
+            logForm["password"].focus();
+            return false;
+        }
+        //validation for the equality of password and confirm password
+        if (passWord!==confirmPassword) {
+            alert("Please Confirm the correct password");
+            logForm['confirmpassword'].focus();
+            return false;
+        }
+        //validation if the input fields are not empty
+        if (userName!=="" && passWord!=="" && confirmPassword!=="" && eMail!=="") {
+            alert("Your Successful");
+            return true;
+        }
+        //email validation
+        /*var atPos =eMail.indexOf("@");
+        console.log ("atPos");
+        var dotPos=eMail.lastindexOf(".");
+        if (atPos < 1 || dotPos < atPos+2 || dotPos +2 >= eMail.length) {
+            alert("Please enter a valid email address  \n atPos")
+            logForm['email'].focus();
+            return false;
+        }*/
+        
+        
+    }
+</script>
+</body>
+</html>

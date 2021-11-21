@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM</title>
+</head>
+<body style="text-align: center;">
+    <h2>Change Background Color</h2>
+    <p>Mouse over the Colored Squares</p>
+    <table id="cTable" style="border: 1px solid red; width: 500px; height: 100px; text-align: center; margin-left: auto; margin-right: auto;">
+        <tr>
+            <th style="border: 1px solid red; width: 300px; height: 100px;">January</th>
+            <th style="border: 1px solid red; width: 300px; height: 100px;">Februry</th>
+            <th style="border: 1px solid red; width: 300px; height: 100px;">March</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid red; width: 300px; height: 100px; background-color: aquamarine;" onmouseover="bgChange(this.style.backgroundColor)" onmouseout="bgChange('transparent')">Row 1 Cell 1</td> <!--another method onmouseover="bgChange(bg)"-->
+            <td style="border: 1px solid red; width: 300px; height: 100px; background-color: palegreen;" onmouseover="bgChange(this.style.backgroundColor)" onmouseout="bgChange('transparent')">Row 1 Cell 2</td><!--assigning values onmouseout="bgChange('transparent')" using quotes values-->
+            <td style="border: 1px solid red; width: 300px; height: 100px; background-color: coral;"  onmouseover="bgChange('coral')" onmouseout="bgChange('transparent')">Row 1 Cell3</td> <!--onmouseover="bgChange(this.style.backgroundColor)" using the this. to make it objct-->
+        </tr>
+
+        <tr >
+            <td style="border: 1px solid red; width: 300px; height: 100px;">Row 2 Cell 1</td>
+            <td style="border: 1px solid red; width: 300px; height: 100px;">Row 2 Cell 2</td>
+            <td style="border: 1px solid red; width: 300px; height: 100px;">Row 2 Cell 3</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid red; width: 300px; height: 100px;">Row 3 Cell 1</td>
+            <td style="border: 1px solid red; width: 300px; height: 100px;">Row 3 Cell 2</td>
+            <td style="border: 1px solid red; width: 300px; height: 100px;">Row 3 Cell 3</td>
+        </tr>
+    </table> <br>
+    <form action="">
+        <input type="button" onclick="changeText()" value="Changed Text">
+    </form><br><br>
+    <!--User defined Table-->
+        <h3>User Input Table</h3>
+        <button id="btn">Create Table</button><br><br>
+        <table id="cTable2" cellpadding="10px" cellspacing="2" border="2" style=" margin-left: auto; margin-right: auto;"> </table>
+
+    <br><br>
+    <!--Sample Form-->
+    <button id="loginButton" onclick="showLogin()">Log-In </button>
+    <div id="loginform">
+        <form action="" style="text-align: left;">
+            <fieldset>
+                <legend>Login Information</legend>
+                <label for="username"> Username:</label>
+                <input type="text" name="username"><br><br>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+       
+            </fieldset>
+        </form>
+    </div>
+    <!--Visibility style-->
+    <p id="p1">This is an example of style.visibility</p>
+    <button  onclick="document.getElementById('p1').style.visibility='hidden'">Hide Text</button>
+    <button onclick="document.getElementById('p1').style.visibility ='visible'">Show Text</button>
+    <!--Append Child--> <br>
+    <h2>List of Programming Languages</h2>
+    <ul id="progLang"> <!--parent node is the <ul>-->
+        <li>Java</li>
+        <li>Php</li>
+    </ul>
+    <button onclick="addProg()">Add Programming Language</button>
+
+
+
+
+    <script>
+        //sample of DOM style attribute manipulation, mouse over will pass the value of color of cell to bg
+        function bgChange (bg) { //bg is the parameter
+            document.body.style.background=bg;
+        }
+        //function to change the initial content of the cells
+        function changeText () {
+            try {
+            var wRow = window.prompt("Input the Row Number (1, 2, 3)", "1"); //variable for the row
+            var wCol = window.prompt("Input the Column Number (0, 1, 2)", "0"); //first 2 determines where is the row and column to change
+            var content = window.prompt("Input the Cell Content"); //the replacement text
+            var cellchange = document.getElementById("cTable").rows[parseInt(wRow)].cells; //rows and cells are reserve word
+
+            cellchange[parseInt(wCol)].innerHTML = content;
+           }
+           catch {
+               alert("Wrong Input");
+           }
+        }
+        
+        //function for user defined table
+        document.getElementById("btn").addEventListener("click", ()=> {
+            //alert("you click the button")
+
+            var custRow = Number(window.prompt("Input the Row Number ",1));
+            var custCol = Number(window.prompt("Input the Column Number ",1));
+            var userTable = document.getElementById("cTable2");
+
+            for (let cRow =0; cRow <custRow; cRow++) {
+                let xR = userTable.insertRow(cRow);
+                for (let cCol = 0; cCol < custCol; cCol++) {
+                    let yC = xR.insertCell(cCol);
+                    yC.innerText=`Row-${cRow} Column-${cCol}`;
+                }
+            }
+        });
+
+        //function for show login
+        let logElement = document.getElementById("loginform");
+        logElement.style.display="none"; //default is none
+        function showLogin (){
+            if (logElement.style.display ==="none") {
+                logElement.style.display ="block";
+            }
+            else {
+                logElement.style.display="none";
+            }
+        }
+
+        //function for append child
+        addProg = ()=> {
+            let node = document.createElement("li");
+            let textNode = document.createTextNode("Ruby on Rails")
+
+            node.appendChild(textNode);
+            document.getElementById("progLang").appendChild(node);
+        }
+    </script>
+</body>
+</html>

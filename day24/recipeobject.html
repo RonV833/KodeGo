@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Object</title>
+    <style>
+        body {
+            background-color: wheat;
+        }
+        .menu {
+            margin: auto; 
+            background-color: antiquewhite; 
+            width: fit-content; 
+            padding: 15px; 
+            border-radius: 10px; 
+            box-shadow: 20px rgba(245, 245, 245, 0);
+
+        }
+    </style>
+</head>
+<body >
+    <div class="menu" >
+        <h3>MENU OF THE DAY</h3>
+        <p id="lunch"></p>
+    </div>
+
+
+<script>
+    //pork, laurel, suka toyo
+    function menu (title, servings, ingredients) {
+        this.title = title;
+        this.servings = servings;
+        this.ingredients = ingredients
+        .map(ing=>`<li>${ing}</li>`).join('');
+        this.list = function () {
+            document.getElementById('lunch').innerHTML = (`Title: ${this.title} <br> Serves: ${this.servings} <br> Ingredients:<ol>${this.ingredients}</ol>`)
+        }
+    }
+    let inG = new menu ('Pork Adobo', 20, [' Pork ', ' Soy Sauce ', ' Vinegar ', ' Laurel ', ' Peppercorn '])
+    inG.list();
+</script>
+</body>
+</html>

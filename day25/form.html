@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review</title>
+</head>
+<body>
+    <form  name="netflixmoviereview">
+        <fieldset>
+            <legend>NetFlix MOvie Review</legend>
+            <label for="movieTitle">Movie Title:</label>
+            <input type="text" name="movieTitle"  id="movieTitle"> <br><br>
+    
+            <label for="yearShown">Year Shown:</label>
+            <input type="number"  id="yearshown"><br><br>
+    
+            <label for="review"></label>
+            <textarea name="review"  cols="30" rows="10" id="review"></textarea> <br><br>
+    
+            <button type="submit" name="addreview" id="submitBtn">ADD Review</button>
+        </fieldset>
+        <button id="listbtn">List Reviews</button> <!--Will List the Moview Review-->
+            <table border="1" id="movieListtable">
+                <tr>
+                    <th>ID</th>
+                    <th>Movie Title</th>
+                    <th>Year Show</th>
+                    <th>Review</th>
+                </tr>
+
+            </table>
+        <div id="display">
+            <pre></pre>
+        </div>
+    </form>
+
+    <script>
+           let movieReviews = [];
+        addMovieReview  = (e) => {
+            e.preventDefault(); //to prevent the  form resubmitting
+            let movieReview = {
+                id: Date.now(), //Date is the object and .now is the method of date, output is series of secods
+                title: document.getElementById("movieTitle").value,
+                year: document.getElementById("yearshown").value,
+                review: document.getElementById("review").value,
+            }
+            movieReviews.push(movieReview)
+            console.table(movieReviews);
+            document.querySelector("#display pre").innerHTML ="\n" +JSON.stringify(movieReviews, null, 2);
+            document['netflixmoviereview'].reset();
+            //saving to local storage
+            localStorage.setItem ("movieReview", JSON.stringify(movieReviews));
+
+        }
+        document.getElementById("submitBtn").addEventListener ("click", addMovieReview);
+
+        listMovieReview = (e) => {
+            e.preventDefault(); //assign array to parse from local storaage
+            //JSON parse will convert Json format to javascript object
+
+            let newArray = [];
+            newArray = JSON.parse(localStorage.getItem("movieReview")) //will convert from local strage
+            let movieListtable = document.getElementById("movieListtable");
+            console.table(newArray);
+            
+           
+
+            /*newArray.forEach((review, i) => {
+                let listRows = movieListtable.insertRow(i+1);
+                let j =0;
+                for (let property in review) {
+                    let listCols = listRows.insertCell(j);
+                    listCols.innerHTML = review[property];
+                    j++
+                }
+            })*/
+
+        }
+        document.getElementById("listbtn").addEventListener ("click", listMovieReview);
+     
+        
+        </script>
+</body>
+</html>

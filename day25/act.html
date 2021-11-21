@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Javascript Object</title>
+</head>
+<body>
+        <h1>Library</h1>
+        <p id="books1"></p>
+        <p id="books2"></p>
+        <p id="books3"></p>
+        <p id="books4"></p>
+        <p id="books5"></p>
+
+
+
+<script>
+   /* const book = {
+        bookname: ['Real Men Are Pogi','The Design of Everyday Things', 'The Hobbit', 'Steve Jobs','Mockingjay'],
+        author: ['Ardy Roberto', 'Don Norman', 'JRR Tolkien', 'Walter Isaacson', 'Suzanne Collins'],
+        yearpublished: [2000, 1900, 1995, 2001, 2015],
+        alreadyRead: [true, false, true, true, false],
+        
+    }*/
+    const book = {
+        book1: ['Real Men Are Pogi ',' Ardy Roberto ',2000,true],
+        book2: [' The Design of Everyday Things ',' Don Norman ',1900, false],
+        book3: [' The Hobbit ',' JRR Tolkien ', 1995, true],
+        book4: [' Steve Jobs ',' Walter Isaacson ', 2001,true],
+        book5: [' Mockingjay ',' Suzanne Collins ',2015,false] 
+
+    }
+   
+    
+    for (let list of book.book1) {
+        //console.log(list);
+        document.getElementById('books1').innerHTML += list;
+    }
+    for (let list of book.book2) {
+        //console.log(list);
+        document.getElementById('books2').innerHTML += list;
+    }
+    for (let list of book.book3) {
+        //console.log(list);
+        document.getElementById('books3').innerHTML += list;
+    }
+    for (let list of book.book4) {
+        //console.log(list);
+        document.getElementById('books4').innerHTML += list;
+    }
+    for (let list of book.book5) {
+        //console.log(list);
+        document.getElementById('books5').innerHTML += list;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" onclick="toggle(this)">Select All
+    <input type="checkbox" name="progLang" value="Java">Java
+    <input type="checkbox" name="progLang" value="PHP">PHP
+    <input type="checkbox" name="progLang" value="Phyton">Phyton
+    <input type="checkbox" name="progLang" value="C">C
+    <input type="checkbox" name="progLang" value="Ruby on Rails">Ruby on Rails
+    <button id="btn6">Get The Values</button>
+
+    <script>
+        //functioin for toggle
+        function toggle (source) {
+        let checkboxes = document.getElementsByName("progLang"); //two conditon
+        for (var i=0, val = checkboxes.length; i<val;i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+
+        const btnCh = document.getElementById('btn6');
+        const progLangEl = document.querySelectorAll('input[name="progLang"]');
+
+         btnCh.addEventListener('click', function () {
+            let selectedValue;
+            for (let i = 0; i < progLangEl.length; i++) {
+               
+               if (progLangEl[i].checked) {
+                  selectedValue = progLangEl[i].value;
+                  console.log(selectedValue);
+               }
+              alert(selectedValue);
+            }
+         });
+    </script>
+</body>
+</html>

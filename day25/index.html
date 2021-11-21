@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //when assigning a data type object variable will be an abject if in this format const proggraming = {}
+        //progrmming is already an object
+            const  programming = {
+                languages: ['Java', 'Php', 'Phyton'],
+                isChallenging : true,
+                isRewarding: true,
+                difficulty: 10
+            }
+            programming.languages.push('Ruby on rails') //.push to add a value to array, or use form inputs to let the user add value
+            console.log (programming.languages);
+
+            //how to manipulate the object values
+            programming.difficulty = 7;
+            //using the delete keyword to remove the is rewarding property from rogramming object
+            delete programming.isRewarding;
+
+            //add new property
+            programming.isFun = true;
+            //console.log (programming);
+
+            //looping samples
+            //in a for loop sample, use the i variable for iteration variable, initiated to zero
+            //can also be declared as let i =0; or for (let i =0;)
+            //next expression is condition i<programming.languages.length, .length will compare the length of array to the iteration value
+            /*for (i = 0; i<programming.languages.length; i++) { //can also be i--
+                console.log(programming.languages[i]);
+            }*/
+
+            //sample looping for ... of
+            for (let lang of programming.languages) {
+                console.log (lang);
+            }
+
+            //sample looping for ...in
+            for (let key in programming) {
+                //console.log (key); for the properties
+                console.log(programming[key]);
+            }
+        
+    </script>
+</body>
+</html>

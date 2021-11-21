@@ -1,0 +1,19 @@
+body {
+    background-color: bisque;
+    padding: 20px 20px;
+}
+h1 {
+    text-align: center;
+}
+.form1 {
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+}
+fieldset {
+    margin: auto;
+}
+input {
+    width: 200px;
+    text-align: right;
+}

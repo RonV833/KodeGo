@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Javascript Object</title>
+</head>
+<body>
+        <h1>Library</h1>
+        <p id="books"></p>
+
+
+
+
+<script>
+
+    const book = [
+        {
+            bookname: 'Real Men Are Pogi',
+            author: 'Ardy Roberto',
+            yearpublished: 2000,
+            alreadyRead: true,
+        },
+        {
+            bookname: 'The Design of Everyday Things',
+            author:'Don Norman',
+            yearpublished:  1900,
+            alreadyRead: false,
+        },
+        {
+            bookname: 'The Hobbit',
+            author:'JRR Tolkien',
+            yearpublished:  1995,
+            alreadyRead: true,
+        },
+        {
+            bookname:  'Steve Jobs',
+            author:'Walter Isaacson',
+            yearpublished:   2001,
+            alreadyRead: true,
+        },
+        {
+            bookname:  'Mockingjay',
+            author:'Suzanne Collins',
+            yearpublished:   2015,
+            alreadyRead: false,
+        },
+
+    ]
+   
+    for (i = 0; i<book.length; i++) {
+        //console.log(book[i]);
+        console.log(book[i].bookname +" by " +book[i].author +" in the year " +book[i].yearpublished);
+        //document.getElementById('books').innerHTML = book[i];
+        //document.getElementById('books').innerHTML = book[i].bookname +" by " +book[i].author +" in the year " +book[i].yearpublished;
+        document.write(book[i].bookname +" by " +book[i].author +" in the year " +book[i].yearpublished +"<br>");
+        
+    }
+
+    for (i = 0; i<book.length; i++) {
+        if (book[i].alreadyRead==true) {
+            console.log(  "I already Read "+book[i].bookname );
+            document.write("<br> I already Read "+book[i].bookname +"<br>");
+        }
+        else {
+            console.log(  "I haven't Read "+book[i].bookname );
+            document.write("I haven't Read "+book[i].bookname +"<br>");
+        }    
+    }
+    
+
+
+
+</script>
+</body>
+</html>

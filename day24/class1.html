@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Constructor</title>
+</head>
+<body>
+    <script>//capital first letter
+        class Square {
+            constructor (width) {
+                this.width = width;   
+            } //get and set are like fucntiions
+            get height () {
+                return this.width;
+            }//when set new height, same height and witdt
+            set height (height) { //set new height method
+                this.width = height;
+                console.log ('set a new height of '+height);
+            }
+            get area () {
+                return this.width*this.height;
+            }
+        }
+        let square = new Square (2); //2 passed value in parameter width of constructor
+            console.log('Getting the height '+square.height);
+            console.log('Getting the area '+square.area);
+
+            square.height = 5; //setting height in a new value
+            console.log('Getting the height '+square.height);
+            console.log('Getting the area '+square.area);
+
+            square.height = 8; //new value in set height
+            console.log('Getting the height '+square.height);
+            console.log('Getting the area '+square.area);
+
+        
+    </script>
+</body>
+</html>

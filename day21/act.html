@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+</head>
+<body style="text-align: center;">
+        <h3>User Input Table</h3>
+        <button id="btn">Create Table</button><br><br>
+        <table id="cTable2" cellpadding="10px" cellspacing="2" border="2" style=" margin-left: auto; margin-right: auto;"> </table>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", ()=> {
+            //alert("you click the button")
+
+            var custRow = Number(window.prompt("Input the Row Number ",1));
+            var custCol = Number(window.prompt("Input the Column Number ",1));
+            var userTable = document.getElementById("cTable2");
+
+            for (let cRow =0; cRow <custRow; cRow++) {
+                let xR = userTable.insertRow(cRow);
+                for (let cCol = 0; cCol < custCol; cCol++) {
+                    let yC = xR.insertCell(cCol);
+                    yC.innerText=`Row-${cRow} Column-${cCol}`;
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>
